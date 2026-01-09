@@ -1,0 +1,75 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+export type Prospect = {
+  id: string;
+  prospect_name: string;
+  prospect_industry: string;
+  number_of_employees: number;
+  union_type: string | null;
+  eligible_employees: number | null;
+  eligible_members: number | null;
+  consultant: string | null;
+  channel_partnership: string | null;
+  healthplan_partnership: string | null;
+  needs_cigna_slides: boolean | null;
+  scenarios_count: number | null;
+  smart_cycles_option_1: string | null;
+  smart_cycles_option_2: string | null;
+  rx_coverage_type: string | null;
+  egg_freezing_coverage: string | null;
+  fertility_pepm: number | null;
+  fertility_case_rate: number | null;
+  implementation_fee: number | null;
+  current_fertility_benefit: string | null;
+  fertility_administrator: string | null;
+  combined_medical_rx_benefit: boolean | null;
+  current_fertility_medical_limit: number | null;
+  medical_ltm_type: string | null;
+  current_fertility_rx_limit: number | null;
+  rx_ltm_type: string | null;
+  medical_benefit_details: string | null;
+  rx_benefit_details: string | null;
+  current_elective_egg_freezing: string | null;
+  live_births_12mo: number | null;
+  current_benefit_pepm: number | null;
+  current_benefit_case_fee: number | null;
+  include_no_benefit_column: boolean | null;
+  dollar_max_column: boolean | null;
+  competing_against: string[] | null;
+  adoption_surrogacy_estimates: boolean | null;
+  adoption_coverage: number | null;
+  adoption_frequency: string | null;
+  surrogacy_coverage: number | null;
+  surrogacy_frequency: string | null;
+  female_employees_40_60: number | null;
+  live_births_12mo_expanded: number | null;
+  subscribers_dependents_under_12: number | null;
+  notes: string | null;
+  jira_ticket_id: string | null;
+  created_at: string;
+  created_by: string | null;
+};
+
+export type HealthPlan = {
+  id: string;
+  prospect_id: string;
+  health_plan_name: string;
+  deductible_individual: number;
+  deductible_family: number;
+  deductible_type: 'embedded' | 'aggregate';
+  oop_individual: number;
+  oop_family: number;
+  oop_type: 'embedded' | 'aggregate';
+  coinsurance_individual: number;
+  coinsurance_family: number;
+  employee_distribution: number;
+  employee_distribution_type: 'number' | 'percentage';
+  has_copays: boolean;
+  copay_type: string | null;
+  created_at: string;
+};
